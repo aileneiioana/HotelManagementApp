@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HoteldbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client_tbl">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="ClientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClientPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClientCountry" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservation_tbl">
+    <Key>
+      <PropertyRef Name="ResId" />
+    </Key>
+    <Property Name="ResId" Type="int" Nullable="false" />
+    <Property Name="Client" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Room" Type="int" Nullable="false" />
+    <Property Name="DateIn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOut" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room_tbl">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" Nullable="false" />
+    <Property Name="RoomPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoomFree" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff_tbl">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="int" Nullable="false" />
+    <Property Name="Staffname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Staffphone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Staffpassword" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HoteldbModelStoreContainer">
+    <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
