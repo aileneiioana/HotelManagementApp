@@ -16,7 +16,7 @@ namespace HotelManagementApplication
     {
         public int ResId { get; set; }
         public string Client { get; set; }
-        public int Room { get; set; }
+        public Nullable<int> Room { get; set; }
         public string DateIn { get; set; }
         public string DateOut { get; set; }
     }

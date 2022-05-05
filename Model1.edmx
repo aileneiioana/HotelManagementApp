@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HoteldbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Client_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Client_tbl">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="30" />
+          <Property Name="ClientPhone" Type="varchar" MaxLength="30" />
+          <Property Name="ClientCountry" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Reservation_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Reservation_tbl">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="int" Nullable="false" />
+          <Property Name="Client" Type="varchar" MaxLength="30" />
+          <Property Name="Room" Type="int" />
+          <Property Name="DateIn" Type="varchar" MaxLength="30" />
+          <Property Name="DateOut" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Room_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Room_tbl">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="RoomPhone" Type="varchar" MaxLength="30" />
+          <Property Name="RoomFree" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Staff_tbl">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="Staffname" Type="varchar" MaxLength="30" />
+          <Property Name="Staffphone" Type="varchar" MaxLength="30" />
+          <Property Name="Gender" Type="varchar" MaxLength="30" />
+          <Property Name="Staffpassword" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityContainer Name="HoteldbModel1StoreContainer">
+          <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" store:Type="Tables" Schema="dbo">
+          
+          </EntitySet>
+          <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" store:Type="Tables" Schema="dbo">
+          
+          </EntitySet>
+          <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" store:Type="Tables" Schema="dbo">
+          
+          </EntitySet>
+          <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" store:Type="Tables" Schema="dbo">
+          
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HoteldbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client_tbl">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ClientPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ClientCountry" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Reservation_tbl">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="Int32" Nullable="false" />
+          <Property Name="Client" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Room" Type="Int32" />
+          <Property Name="DateIn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DateOut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Room_tbl">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="RoomPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RoomFree" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Staff_tbl">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="Staffname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Staffphone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Staffpassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="HoteldbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" />
+          <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" />
+          <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" />
+          <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HoteldbModel1StoreContainer" CdmEntityContainer="HoteldbEntities1">
+          <EntitySetMapping Name="Client_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel1.Client_tbl">
+              <MappingFragment StoreEntitySet="Client_tbl">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+                <ScalarProperty Name="ClientCountry" ColumnName="ClientCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservation_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel1.Reservation_tbl">
+              <MappingFragment StoreEntitySet="Reservation_tbl">
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+                <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel1.Room_tbl">
+              <MappingFragment StoreEntitySet="Room_tbl">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="RoomPhone" ColumnName="RoomPhone" />
+                <ScalarProperty Name="RoomFree" ColumnName="RoomFree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel1.Staff_tbl">
+              <MappingFragment StoreEntitySet="Staff_tbl">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="Staffname" ColumnName="Staffname" />
+                <ScalarProperty Name="Staffphone" ColumnName="Staffphone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Staffpassword" ColumnName="Staffpassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

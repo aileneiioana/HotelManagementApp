@@ -22,7 +22,7 @@ namespace HotelManagementApplicationlication
         private void button1_Click(object sender, EventArgs e)
         {
            
-            using (HoteldbEntities db = new HoteldbEntities())
+            using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 var dataset = db.Staff_tbl.Where(x => x.Staffname == usernametb.Text && x.Staffpassword == passwordtb.Text).Select(x => new { x.Staffname, x.Staffpassword }).FirstOrDefault();
                 if(dataset != null)
