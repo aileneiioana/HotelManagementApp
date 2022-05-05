@@ -121,6 +121,37 @@ namespace HotelManagementApplication
             PopulateDataGridView();
         }
 
+/*        private void Search_Click(object sender, EventArgs e)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                var dataset = db.Reservation_tbl.Where(x => x.ResId == int.Parse(Searchtb.Text)).Select(x => new { x.ResId, x.Client, x.Room, x.DateIn, x.DateOut }).ToList();
+                ResView.DataSource = dataset;
+
+            }
+        }
+*/
+        private void ResView_DoubleClick(object sender, EventArgs e)
+        {
+            if (ResView.CurrentRow.Index != -1)
+            {
+                model.ResId = Convert.ToInt32(ResView.CurrentRow.Cells["ResId"].Value);
+                using (HoteldbEntities1 db = new HoteldbEntities1())
+                {
+                    model = db.Reservation_tbl.Where(x => x.ResId == model.ResId).FirstOrDefault();
+                    ReservationIdtb.Text = model.ResId.ToString();
+                    clientcb.Text = model.Client;
+                    roomnumbercb.Text = model.Room.ToString();
+                }
+            }
+        }
+
+        private void Datelb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         /* void updateRoomState(int id, string state)
          {
              using (HoteldbEntities1 db = new HoteldbEntities1())

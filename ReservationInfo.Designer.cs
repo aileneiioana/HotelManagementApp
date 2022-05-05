@@ -82,6 +82,7 @@ namespace HotelManagementApplication
             this.Datelb.TabIndex = 1;
             this.Datelb.Text = "Date";
             this.Datelb.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Datelb.Click += new System.EventHandler(this.Datelb_Click);
             // 
             // label1
             // 
@@ -163,6 +164,7 @@ namespace HotelManagementApplication
             this.Search.TabIndex = 15;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = false;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // Searchtb
             // 
@@ -189,6 +191,7 @@ namespace HotelManagementApplication
             this.ResView.RowTemplate.Height = 25;
             this.ResView.Size = new System.Drawing.Size(545, 347);
             this.ResView.TabIndex = 13;
+            this.ResView.DoubleClick += new System.EventHandler(this.ResView_DoubleClick);
             // 
             // ResId
             // 
