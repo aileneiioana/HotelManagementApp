@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HoteldbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Client_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Client_tbl">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="ClientName" Type="varchar" MaxLength="30" />
+    <Property Name="ClientPhone" Type="varchar" MaxLength="30" />
+    <Property Name="ClientCountry" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Reservation_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Reservation_tbl">
+    <Key>
+      <PropertyRef Name="ResId" />
+    </Key>
+    <Property Name="ResId" Type="int" Nullable="false" />
+    <Property Name="Client" Type="varchar" MaxLength="30" />
+    <Property Name="Room" Type="int" />
+    <Property Name="DateIn" Type="varchar" MaxLength="30" />
+    <Property Name="DateOut" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Room_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Room_tbl">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" Nullable="false" />
+    <Property Name="RoomPhone" Type="varchar" MaxLength="30" />
+    <Property Name="RoomFree" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Staff_tbl">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="int" Nullable="false" />
+    <Property Name="Staffname" Type="varchar" MaxLength="30" />
+    <Property Name="Staffphone" Type="varchar" MaxLength="30" />
+    <Property Name="Gender" Type="varchar" MaxLength="30" />
+    <Property Name="Staffpassword" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityContainer Name="HoteldbModel1StoreContainer">
+    <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+</Schema>
