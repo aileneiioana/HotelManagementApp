@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects.DataClasses;
+using System.Data.Entity.SqlServer;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,14 +17,16 @@ namespace HotelManagementApplication
     public partial class ReservationInfo : Form
     {
         Reservation_tbl model = new Reservation_tbl();
+
+        DateTime today;
         public ReservationInfo()
         {
             InitializeComponent();
             PopulateDataGridView();
             fillClientcb();
-            fillRoomcb();   
+            fillRoomcb();
+            Datelb.Text = DateTime.Today.Day.ToString() + " - " + DateTime.Today.Month.ToString() + " - " + DateTime.Today.Year.ToString();
         }
-
         void Clear()
         {
             ReservationIdtb.Text = "Reservation Id";
@@ -74,7 +78,8 @@ namespace HotelManagementApplication
             }
             Clear();
             MessageBox.Show("Reservation Successfully Added");
-           // updateRoomState(int.Parse(roomnumbercb.Text), "busy");
+            int.TryParse(model.Room.ToString(), out int id);
+            updateRoomState(id, "busy");
             PopulateDataGridView();
             
         }
@@ -112,7 +117,8 @@ namespace HotelManagementApplication
                     PopulateDataGridView();
                     Clear();
                     MessageBox.Show("Reservation Successfully Deleted");
-                    // updateRoomState(int.Parse(roomnumbercb.Text), "free");
+                    int.TryParse(model.Room.ToString(), out int id);
+                    updateRoomState(id, "free");
                 }
         }
 
@@ -121,16 +127,6 @@ namespace HotelManagementApplication
             PopulateDataGridView();
         }
 
-/*        private void Search_Click(object sender, EventArgs e)
-        {
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                var dataset = db.Reservation_tbl.Where(x => x.ResId == int.Parse(Searchtb.Text)).Select(x => new { x.ResId, x.Client, x.Room, x.DateIn, x.DateOut }).ToList();
-                ResView.DataSource = dataset;
-
-            }
-        }
-*/
         private void ResView_DoubleClick(object sender, EventArgs e)
         {
             if (ResView.CurrentRow.Index != -1)
@@ -151,22 +147,40 @@ namespace HotelManagementApplication
 
         }
 
+        private void Search_Click(object sender, EventArgs e)
+        {
+         
+            int.TryParse(Searchtb.Text.Trim(), out int id);
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                var dataset = db.Reservation_tbl.Where(x => x.ResId == id).Select(x => new { x.ResId, x.Client, x.Room, x.DateIn, x.DateOut }).ToList();
+                ResView.DataSource = dataset;
+            }
+        }
 
-        /* void updateRoomState(int id, string state)
+
+        private void Backbtn_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Hide();
+        }
+
+
+         void updateRoomState(int id, string state)
          {
              using (HoteldbEntities1 db = new HoteldbEntities1())
              {
                  var rm = db.Room_tbl.Where(f => f.RoomId == id).FirstOrDefault();
+                 rm.RoomFree = state;
                  if (rm != null)
                  {
-                     rm.RoomFree = state;
-                     db.Entry(rm).State = EntityState.Modified;
-                     db.Room_tbl.Attach(rm);
-                     db.SaveChanges();
-                 }
+                     db.Entry(rm).State = EntityState.Modified; 
+                    db.SaveChanges();
+                }
              }
              fillRoomcb();
-         }*/
+         }
 
 
     }

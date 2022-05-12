@@ -193,7 +193,6 @@ namespace HotelManagementApplication
             this.Searchtb.Size = new System.Drawing.Size(203, 26);
             this.Searchtb.TabIndex = 9;
             this.Searchtb.Text = "Staff Name";
-            this.Searchtb.TextChanged += new System.EventHandler(this.Searchtb_TextChanged);
             // 
             // Search
             // 

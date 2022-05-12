@@ -324,6 +324,7 @@ namespace HotelManagementApplication
             this.Backbtn.TabIndex = 26;
             this.Backbtn.Text = "Back";
             this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // refreshpb
             // 

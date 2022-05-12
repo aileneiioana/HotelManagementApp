@@ -69,7 +69,7 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HoteldbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Client_tbl">
+		  <EntityType Name="Client_tbl">
           <Key>
             <PropertyRef Name="ClientId" />
           </Key>

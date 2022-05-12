@@ -15,10 +15,13 @@ namespace HotelManagementApplication
     public partial class StaffInfo : Form
     {
         Staff_tbl model = new Staff_tbl();
+
+        DateTime today;
         public StaffInfo()
         {
             InitializeComponent();
             PopulateDataGridView();
+            Datelb.Text = DateTime.Today.Day.ToString() + " - " + DateTime.Today.Month.ToString() + " - " + DateTime.Today.Year.ToString();
         }
 
         void Clear()
@@ -123,14 +126,10 @@ namespace HotelManagementApplication
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                var dataset = db.Staff_tbl.Where(x => x.Staffname == Searchtb.Text).Select(x => new { x.StaffId, x.Staffname, x.Staffphone,x.Gender,x.Staffpassword }).ToList();
-                StaffView.DataSource = dataset;
+               StaffView.DataSource = dataset;
                
             }
         }
 
-        private void Searchtb_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
