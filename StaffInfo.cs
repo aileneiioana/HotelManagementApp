@@ -15,6 +15,7 @@ namespace HotelManagementApplication
     public partial class StaffInfo : Form
     {
         Staff_tbl model = new Staff_tbl();
+        StaffServices staffService = new StaffServices();
 
         DateTime Today;
         public StaffInfo()
@@ -41,11 +42,7 @@ namespace HotelManagementApplication
             model.Staffphone=PhoneNumbertb.Text.Trim();
             model.Staffpassword=Passwordtb.Text.Trim();
             model.Gender=Gendercb.Text.Trim();
-            using(HoteldbEntities1 db= new HoteldbEntities1())
-            {
-                db.Staff_tbl.Add(model);
-                db.SaveChanges();
-            }
+            staffService.AddStaff(model);
             Clear();
             MessageBox.Show("Staff Successfully Added");
             PopulateDataGridView();
@@ -53,10 +50,7 @@ namespace HotelManagementApplication
         }
          void PopulateDataGridView()
         {
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                StaffView.DataSource = db.Staff_tbl.ToList<Staff_tbl>();
-            }
+              StaffView.DataSource = staffService.Getstaff();
         }
 
         private void StaffView_DoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -64,15 +58,13 @@ namespace HotelManagementApplication
             if(StaffView.CurrentRow.Index != -1)
             {
                 model.StaffId=Convert.ToInt32(StaffView.CurrentRow.Cells["StaffId"].Value);
-                using (HoteldbEntities1 db = new HoteldbEntities1())
-                {
-                   model=db.Staff_tbl.Where(x=>x.StaffId==model.StaffId).FirstOrDefault();
-                    StaffIdtb.Text = model.StaffId.ToString();
-                    StaffNametb.Text = model.Staffname;
-                    PhoneNumbertb.Text = model.Staffphone;
-                    Passwordtb.Text= model.Staffpassword;
-                    Gendercb.Text = model.Gender;
-                }
+                staffService.GetStaffById(model.StaffId);
+                StaffIdtb.Text = model.StaffId.ToString();
+                StaffNametb.Text = model.Staffname;
+                PhoneNumbertb.Text = model.Staffphone;
+                Passwordtb.Text= model.Staffpassword;
+                Gendercb.Text = model.Gender;
+
             } 
         }
 
@@ -83,11 +75,7 @@ namespace HotelManagementApplication
             model.Staffphone = PhoneNumbertb.Text.Trim();
             model.Staffpassword = Passwordtb.Text.Trim();
             model.Gender = Gendercb.Text.Trim();
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                db.Entry(model).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+            staffService.EditStaff(model);
             Clear();
             MessageBox.Show("Staff Successfully Updated");
             PopulateDataGridView();
@@ -95,17 +83,11 @@ namespace HotelManagementApplication
 
         private void DeleteStaffBtn_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to delete this Record?","Staff Info",MessageBoxButtons.YesNo)==DialogResult.Yes)
-                using (HoteldbEntities1 db = new HoteldbEntities1())
-                {
-                    var entity = db.Entry(model);
-                    if (entity.State == EntityState.Detached)
-                       db.Staff_tbl.Attach(model);
-                    db.Staff_tbl.Remove(model);
-                    db.SaveChanges();
-                    PopulateDataGridView();
-                    Clear();
-                    MessageBox.Show("Staff Successfully Deleted");
+            if (MessageBox.Show("Are you sure you want to delete this Record?", "Staff Info", MessageBoxButtons.YesNo) == DialogResult.Yes) { 
+            staffService.DeleteStaff(model);
+            PopulateDataGridView();
+            Clear();
+            MessageBox.Show("Staff Successfully Deleted");
                 }
         }
 
@@ -129,16 +111,6 @@ namespace HotelManagementApplication
                StaffView.DataSource = dataset;
                
             }
-        }
-
-        private void Datelb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

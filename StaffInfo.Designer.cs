@@ -84,7 +84,6 @@ namespace HotelManagementApplication
             this.Datelb.TabIndex = 1;
             this.Datelb.Text = "Date";
             this.Datelb.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Datelb.Click += new System.EventHandler(this.Datelb_Click);
             // 
             // label1
             // 
@@ -97,7 +96,6 @@ namespace HotelManagementApplication
             this.label1.TabIndex = 0;
             this.label1.Text = "Staff Information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // StaffIdtb
             // 

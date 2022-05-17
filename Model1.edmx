@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HoteldbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HoteldbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Hoteldb.dbo.Client_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Client_tbl">
@@ -50,26 +50,26 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
           <Property Name="Gender" Type="varchar" MaxLength="30" />
           <Property Name="Staffpassword" Type="varchar" MaxLength="30" />
         </EntityType>
-        <EntityContainer Name="HoteldbModel1StoreContainer">
+        <EntityContainer Name="HoteldbModelStoreContainer">
           <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" store:Type="Tables" Schema="dbo">
-          
+            
           </EntitySet>
           <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" store:Type="Tables" Schema="dbo">
-          
+           
           </EntitySet>
           <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" store:Type="Tables" Schema="dbo">
-          
+           
           </EntitySet>
           <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" store:Type="Tables" Schema="dbo">
-          
+         
           </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HoteldbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-		  <EntityType Name="Client_tbl">
+      <Schema Namespace="HoteldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client_tbl">
           <Key>
             <PropertyRef Name="ClientId" />
           </Key>
@@ -117,9 +117,9 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HoteldbModel1StoreContainer" CdmEntityContainer="HoteldbEntities1">
+        <EntityContainerMapping StorageEntityContainer="HoteldbModelStoreContainer" CdmEntityContainer="HoteldbEntities1">
           <EntitySetMapping Name="Client_tbl">
-            <EntityTypeMapping TypeName="HoteldbModel1.Client_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel.Client_tbl">
               <MappingFragment StoreEntitySet="Client_tbl">
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="ClientName" ColumnName="ClientName" />
@@ -129,7 +129,7 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservation_tbl">
-            <EntityTypeMapping TypeName="HoteldbModel1.Reservation_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel.Reservation_tbl">
               <MappingFragment StoreEntitySet="Reservation_tbl">
                 <ScalarProperty Name="ResId" ColumnName="ResId" />
                 <ScalarProperty Name="Client" ColumnName="Client" />
@@ -140,7 +140,7 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Room_tbl">
-            <EntityTypeMapping TypeName="HoteldbModel1.Room_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel.Room_tbl">
               <MappingFragment StoreEntitySet="Room_tbl">
                 <ScalarProperty Name="RoomId" ColumnName="RoomId" />
                 <ScalarProperty Name="RoomPhone" ColumnName="RoomPhone" />
@@ -149,7 +149,7 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Staff_tbl">
-            <EntityTypeMapping TypeName="HoteldbModel1.Staff_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel.Staff_tbl">
               <MappingFragment StoreEntitySet="Staff_tbl">
                 <ScalarProperty Name="StaffId" ColumnName="StaffId" />
                 <ScalarProperty Name="Staffname" ColumnName="Staffname" />
@@ -173,7 +173,7 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

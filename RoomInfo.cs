@@ -14,6 +14,7 @@ namespace HotelManagementApplication
     public partial class RoomInfo : Form
     {
         Room_tbl model = new Room_tbl();
+        RoomServices roomServices = new RoomServices();
         public RoomInfo()
         {
             InitializeComponent();
@@ -39,11 +40,7 @@ namespace HotelManagementApplication
             model.RoomId = Convert.ToInt32(roomidtbl.Text.Trim());
             model.RoomPhone = roomphonetbl.Text.Trim();
             model.RoomFree = isfree;
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                db.Room_tbl.Add(model);
-                db.SaveChanges();
-            }
+            roomServices.AddRoom(model);
             Clear();
             PopulateDataGridView();
             MessageBox.Show("Submitted Successfully");
@@ -52,11 +49,7 @@ namespace HotelManagementApplication
         void PopulateDataGridView()
         {
             RoomGridview.AutoGenerateColumns = false;
-
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                RoomGridview.DataSource = db.Room_tbl.ToList<Room_tbl>();
-            }
+            RoomGridview.DataSource = roomServices.GetRooms();
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -69,11 +62,7 @@ namespace HotelManagementApplication
             model.RoomId = Convert.ToInt32(roomidtbl.Text.Trim());
             model.RoomPhone = roomphonetbl.Text.Trim(); 
             model.RoomFree = isfree;
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                db.Entry(model).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+            roomServices.EditRoom(model);
             Clear();
             MessageBox.Show("Room Successfully Updated");
             PopulateDataGridView();
@@ -84,28 +73,19 @@ namespace HotelManagementApplication
             if (RoomGridview.CurrentRow.Index != -1)
             {
                 model.RoomId = Convert.ToInt32(RoomGridview.CurrentRow.Cells["RoomNumber"].Value);
-                using (HoteldbEntities1 db = new HoteldbEntities1())
-                {
-                    model = db.Room_tbl.Where(x => x.RoomId == model.RoomId).FirstOrDefault();
-                    roomidtbl.Text = model.RoomId.ToString();
-                    roomphonetbl.Text = model.RoomPhone.ToString();
-                }
+                model = roomServices.GetRoomById(model.RoomId);
+                roomidtbl.Text = model.RoomId.ToString();
+                roomphonetbl.Text = model.RoomPhone.ToString();
             }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this Record?", "Room Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                using (HoteldbEntities1 db = new HoteldbEntities1())
-                {
-                    var entity = db.Entry(model);
-                    if (entity.State == EntityState.Detached)
-                        db.Room_tbl.Attach(model);
-                    db.Room_tbl.Remove(model);
-                    db.SaveChanges();
-                    PopulateDataGridView();
-                    Clear();
-                    MessageBox.Show("Room Successfully Deleted");
+            if (MessageBox.Show("Are you sure you want to delete this Record?", "Room Info", MessageBoxButtons.YesNo) == DialogResult.Yes) { 
+                roomServices.DeleteRoom(model);
+                PopulateDataGridView();
+                Clear();
+                MessageBox.Show("Room Successfully Deleted");
                 }
         }
 

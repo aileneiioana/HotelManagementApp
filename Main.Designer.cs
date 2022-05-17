@@ -29,7 +29,6 @@ namespace HotelManagementApplication
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,25 +48,14 @@ namespace HotelManagementApplication
             ((System.ComponentModel.ISupportInitialize)(this.staffpb)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(145, 145);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(109, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 44);
+            this.label3.Size = new System.Drawing.Size(97, 36);
             this.label3.TabIndex = 8;
             this.label3.Text = "Client";
             // 
@@ -76,10 +64,9 @@ namespace HotelManagementApplication
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(145, 349);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(109, 284);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 44);
+            this.label4.Size = new System.Drawing.Size(97, 36);
             this.label4.TabIndex = 9;
             this.label4.Text = "Room";
             // 
@@ -88,10 +75,9 @@ namespace HotelManagementApplication
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(599, 145);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(449, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 44);
+            this.label5.Size = new System.Drawing.Size(74, 36);
             this.label5.TabIndex = 10;
             this.label5.Text = "Staff";
             // 
@@ -100,20 +86,18 @@ namespace HotelManagementApplication
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(536, 349);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(402, 284);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(227, 44);
+            this.label6.Size = new System.Drawing.Size(179, 36);
             this.label6.TabIndex = 11;
             this.label6.Text = "Reservation";
             // 
             // exit
             // 
             this.exit.Image = global::HotelManagementApplication.Properties.Resources.close;
-            this.exit.Location = new System.Drawing.Point(739, 13);
-            this.exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exit.Location = new System.Drawing.Point(554, 11);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(41, 36);
+            this.exit.Size = new System.Drawing.Size(31, 29);
             this.exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.exit.TabIndex = 6;
             this.exit.TabStop = false;
@@ -122,10 +106,9 @@ namespace HotelManagementApplication
             // singoutpb
             // 
             this.singoutpb.Image = global::HotelManagementApplication.Properties.Resources.log_out;
-            this.singoutpb.Location = new System.Drawing.Point(361, 493);
-            this.singoutpb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.singoutpb.Location = new System.Drawing.Point(271, 401);
             this.singoutpb.Name = "singoutpb";
-            this.singoutpb.Size = new System.Drawing.Size(81, 76);
+            this.singoutpb.Size = new System.Drawing.Size(61, 62);
             this.singoutpb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.singoutpb.TabIndex = 5;
             this.singoutpb.TabStop = false;
@@ -134,10 +117,9 @@ namespace HotelManagementApplication
             // reservationpb
             // 
             this.reservationpb.Image = global::HotelManagementApplication.Properties.Resources.reservation;
-            this.reservationpb.Location = new System.Drawing.Point(598, 397);
-            this.reservationpb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reservationpb.Location = new System.Drawing.Point(448, 323);
             this.reservationpb.Name = "reservationpb";
-            this.reservationpb.Size = new System.Drawing.Size(81, 76);
+            this.reservationpb.Size = new System.Drawing.Size(61, 62);
             this.reservationpb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.reservationpb.TabIndex = 4;
             this.reservationpb.TabStop = false;
@@ -146,10 +128,9 @@ namespace HotelManagementApplication
             // roompb
             // 
             this.roompb.Image = global::HotelManagementApplication.Properties.Resources.room;
-            this.roompb.Location = new System.Drawing.Point(164, 397);
-            this.roompb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roompb.Location = new System.Drawing.Point(123, 323);
             this.roompb.Name = "roompb";
-            this.roompb.Size = new System.Drawing.Size(81, 76);
+            this.roompb.Size = new System.Drawing.Size(61, 62);
             this.roompb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.roompb.TabIndex = 3;
             this.roompb.TabStop = false;
@@ -158,10 +139,9 @@ namespace HotelManagementApplication
             // clientpb
             // 
             this.clientpb.Image = global::HotelManagementApplication.Properties.Resources.client;
-            this.clientpb.Location = new System.Drawing.Point(164, 209);
-            this.clientpb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clientpb.Location = new System.Drawing.Point(123, 170);
             this.clientpb.Name = "clientpb";
-            this.clientpb.Size = new System.Drawing.Size(81, 76);
+            this.clientpb.Size = new System.Drawing.Size(61, 62);
             this.clientpb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.clientpb.TabIndex = 2;
             this.clientpb.TabStop = false;
@@ -170,10 +150,9 @@ namespace HotelManagementApplication
             // staffpb
             // 
             this.staffpb.Image = global::HotelManagementApplication.Properties.Resources.staff;
-            this.staffpb.Location = new System.Drawing.Point(607, 209);
-            this.staffpb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.staffpb.Location = new System.Drawing.Point(455, 170);
             this.staffpb.Name = "staffpb";
-            this.staffpb.Size = new System.Drawing.Size(72, 76);
+            this.staffpb.Size = new System.Drawing.Size(54, 62);
             this.staffpb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.staffpb.TabIndex = 1;
             this.staffpb.TabStop = false;
@@ -184,25 +163,23 @@ namespace HotelManagementApplication
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 22.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(298, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(224, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 44);
+            this.label1.Size = new System.Drawing.Size(187, 37);
             this.label1.TabIndex = 13;
             this.label1.Text = "IA-AC Hotel";
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(802, 641);
+            this.ClientSize = new System.Drawing.Size(602, 521);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.singoutpb);
             this.Controls.Add(this.reservationpb);
@@ -210,7 +187,6 @@ namespace HotelManagementApplication
             this.Controls.Add(this.clientpb);
             this.Controls.Add(this.staffpb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -232,7 +208,6 @@ namespace HotelManagementApplication
         private PictureBox reservationpb;
         private PictureBox singoutpb;
         private PictureBox exit;
-        private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;

@@ -86,7 +86,6 @@ namespace HotelManagementApplication
             this.Datelb.TabIndex = 1;
             this.Datelb.Text = "Date";
             this.Datelb.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Datelb.Click += new System.EventHandler(this.Datelb_Click);
             // 
             // label1
             // 
