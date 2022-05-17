@@ -77,10 +77,11 @@
             this.label2.ForeColor = System.Drawing.Color.Snow;
             this.label2.Location = new System.Drawing.Point(267, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 31);
+            this.label2.Size = new System.Drawing.Size(207, 31);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Powered By IA-AI";
+            this.label2.Text = "Powered By IA-AC";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // SpalshPBar
             // 

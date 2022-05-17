@@ -18,7 +18,7 @@ namespace HotelManagementApplication
         {
             InitializeComponent();
             PopulateDataGridView();
-            //Datelbl.Text = DateTime.Today.Day.ToString() + " - " + DateTime.Today.Month.ToString() + " - " + DateTime.Today.Year.ToString();
+            Datelbl.Text = DateTime.Today.Day.ToString() + " - " + DateTime.Today.Month.ToString() + " - " + DateTime.Today.Year.ToString();
         }
 
         void Clear()
@@ -39,7 +39,7 @@ namespace HotelManagementApplication
             model.RoomId = Convert.ToInt32(roomidtbl.Text.Trim());
             model.RoomPhone = roomphonetbl.Text.Trim();
             model.RoomFree = isfree;
-            using (HoteldbEntities4 db = new HoteldbEntities4())
+            using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 db.Room_tbl.Add(model);
                 db.SaveChanges();
@@ -53,7 +53,7 @@ namespace HotelManagementApplication
         {
             RoomGridview.AutoGenerateColumns = false;
 
-            using (HoteldbEntities4 db = new HoteldbEntities4())
+            using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 RoomGridview.DataSource = db.Room_tbl.ToList<Room_tbl>();
             }
@@ -69,7 +69,7 @@ namespace HotelManagementApplication
             model.RoomId = Convert.ToInt32(roomidtbl.Text.Trim());
             model.RoomPhone = roomphonetbl.Text.Trim(); 
             model.RoomFree = isfree;
-            using (HoteldbEntities4 db = new HoteldbEntities4())
+            using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 db.Entry(model).State = EntityState.Modified;
                 db.SaveChanges();
@@ -84,7 +84,7 @@ namespace HotelManagementApplication
             if (RoomGridview.CurrentRow.Index != -1)
             {
                 model.RoomId = Convert.ToInt32(RoomGridview.CurrentRow.Cells["RoomNumber"].Value);
-                using (HoteldbEntities4 db = new HoteldbEntities4())
+                using (HoteldbEntities1 db = new HoteldbEntities1())
                 {
                     model = db.Room_tbl.Where(x => x.RoomId == model.RoomId).FirstOrDefault();
                     roomidtbl.Text = model.RoomId.ToString();
@@ -96,7 +96,7 @@ namespace HotelManagementApplication
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this Record?", "Room Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                using (HoteldbEntities4 db = new HoteldbEntities4())
+                using (HoteldbEntities1 db = new HoteldbEntities1())
                 {
                     var entity = db.Entry(model);
                     if (entity.State == EntityState.Detached)
@@ -124,7 +124,7 @@ namespace HotelManagementApplication
         private void Search_Click(object sender, EventArgs e)
         {
             int.TryParse(RoomSearchtbl.Text.Trim(), out int id);
-            using (HoteldbEntities4 db = new HoteldbEntities4())
+            using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 var dataset = db.Room_tbl.Where(x => x.RoomId == id).Select(x => new { x.RoomId, x.RoomPhone, x.RoomFree}).ToList();
                 RoomGridview.DataSource = dataset;
@@ -146,7 +146,19 @@ namespace HotelManagementApplication
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            Datelbl.Text = DateTime.Now.ToString();
+            //Datelbl.Text = DateTime.Now.ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Hide();
         }
     }
 }

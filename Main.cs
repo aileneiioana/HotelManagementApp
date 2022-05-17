@@ -43,5 +43,24 @@ namespace HotelManagementApplication
             res.Show();
             this.Hide();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientpb_Click(object sender, EventArgs e)
+        {
+            Clientinfo res = new Clientinfo();
+            res.Show();
+            this.Hide();
+        }
+
+        private void roompb_Click(object sender, EventArgs e)
+        {
+            RoomInfo res = new RoomInfo();
+            res.Show();
+            this.Hide();
+        }
     }
 }

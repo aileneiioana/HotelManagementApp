@@ -16,7 +16,7 @@ namespace HotelManagementApplication
     {
         Staff_tbl model = new Staff_tbl();
 
-        DateTime today;
+        DateTime Today;
         public StaffInfo()
         {
             InitializeComponent();
@@ -131,5 +131,21 @@ namespace HotelManagementApplication
             }
         }
 
+        private void Datelb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Hide();
+        }
     }
 }

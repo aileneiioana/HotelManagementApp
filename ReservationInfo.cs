@@ -18,7 +18,7 @@ namespace HotelManagementApplication
     {
         Reservation_tbl model = new Reservation_tbl();
 
-        DateTime today;
+        DateTime Today;
         public ReservationInfo()
         {
             InitializeComponent();
@@ -182,6 +182,11 @@ namespace HotelManagementApplication
              fillRoomcb();
          }
 
-
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Hide();
+        }
     }
 }
