@@ -107,7 +107,7 @@ namespace HotelManagementApplication
         {
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
-               var dataset = db.Staff_tbl.Where(x => x.Staffname == Searchtb.Text).Select(x => new { x.StaffId, x.Staffname, x.Staffphone,x.Gender,x.Staffpassword }).ToList();
+                var dataset = staffService.GetStaffByName(Searchtb.Text);
                StaffView.DataSource = dataset;
                
             }

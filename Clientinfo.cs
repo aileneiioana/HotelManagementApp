@@ -15,6 +15,7 @@ namespace HotelManagementApplication
     {
         Client_tbl model= new Client_tbl();
         ClientServices clientServices = new ClientServices();
+
         public Clientinfo()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace HotelManagementApplication
             clientidtbl.Text = "Client Id";
             clientnametbl.Text = "Client Name";
             clientphonetb.Text = "Client Phone";
-            clientctrytb.Text = "Client Phone";
+            clientctrytb.Text = "Country";
             model.ClientId = 0;
         }
 
@@ -113,11 +114,13 @@ namespace HotelManagementApplication
 
         private void Search_Click(object sender, EventArgs e)
         {
+              
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
-                var dataset = db.Client_tbl.Where(x => x.ClientName == ClientSearchtb.Text).Select(x => new {  x.ClientId,  x.ClientName, x.ClientPhone, x.ClientCountry }).ToList();
+                var dataset = clientServices.GetClientsByName(ClientSearchtb.Text);
                 ClientGridview.DataSource = dataset;
             }
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

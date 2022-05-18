@@ -19,8 +19,8 @@ namespace HotelManagementApplication
     {
         Reservation_tbl model = new Reservation_tbl();
         ReservationServices resServices = new ReservationServices();
+        RoomServices roomServices = new RoomServices(); 
 
-        DateTime Today;
         public ReservationInfo()
         {
             InitializeComponent();
@@ -67,7 +67,8 @@ namespace HotelManagementApplication
             Clear();
             MessageBox.Show("Reservation Successfully Added");
             int.TryParse(model.Room.ToString(), out int id);
-            updateRoomState(id, "busy");
+            roomServices.updateRoomState(id, "busy");
+            fillRoomcb();
             PopulateDataGridView();
             
         }
@@ -96,7 +97,8 @@ namespace HotelManagementApplication
                 Clear();
                 MessageBox.Show("Reservation Successfully Deleted");
                 int.TryParse(model.Room.ToString(), out int id);
-                updateRoomState(id, "free");
+                roomServices.updateRoomState(id, "free");
+                fillRoomcb();
                 }
         }
 
@@ -110,13 +112,10 @@ namespace HotelManagementApplication
             if (ResView.CurrentRow.Index != -1)
             {
                 model.ResId = Convert.ToInt32(ResView.CurrentRow.Cells["ResId"].Value);
-                using (HoteldbEntities1 db = new HoteldbEntities1())
-                {
-                    model = resServices.GetResById(model.ResId);
-                    ReservationIdtb.Text = model.ResId.ToString();
-                    clientcb.Text = model.Client;
-                    roomnumbercb.Text = model.Room.ToString();
-                }
+                model = resServices.GetResById(model.ResId);
+                ReservationIdtb.Text = model.ResId.ToString();
+                clientcb.Text = model.Client;
+                roomnumbercb.Text = model.Room.ToString();
             }
         }
 
@@ -124,11 +123,8 @@ namespace HotelManagementApplication
         {
          
             int.TryParse(Searchtb.Text.Trim(), out int id);
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                var dataset = db.Reservation_tbl.Where(x => x.ResId == id).Select(x => new { x.ResId, x.Client, x.Room, x.DateIn, x.DateOut }).ToList();
-                ResView.DataSource = dataset;
-            }
+            var dataset = resServices.GetReservationsById(id);
+            ResView.DataSource = dataset;
         }
 
 
@@ -138,22 +134,6 @@ namespace HotelManagementApplication
             main.Show();
             this.Hide();
         }
-
-
-         void updateRoomState(int id, string state)
-         {
-             using (HoteldbEntities1 db = new HoteldbEntities1())
-             {
-                 var rm = db.Room_tbl.Where(f => f.RoomId == id).FirstOrDefault();
-                 rm.RoomFree = state;
-                 if (rm != null)
-                 {
-                     db.Entry(rm).State = EntityState.Modified; 
-                    db.SaveChanges();
-                }
-             }
-             fillRoomcb();
-         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

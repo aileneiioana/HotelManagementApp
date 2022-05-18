@@ -54,5 +54,15 @@ namespace HotelManagementApplication.Services
                 return db.Reservation_tbl.ToList<Reservation_tbl>();
             }
         }
+
+        public List<Reservation_tbl> GetReservationsById(int id)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                return db.Reservation_tbl.Where(x => x.ResId == id).ToList();
+            }
+        }
+
+
     };
 }

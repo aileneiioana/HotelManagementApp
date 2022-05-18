@@ -21,10 +21,8 @@ namespace HotelManagementApplicationlication
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            using (HoteldbEntities1 db = new HoteldbEntities1())
-            {
-                var dataset = db.Staff_tbl.Where(x => x.Staffname == usernametb.Text && x.Staffpassword == passwordtb.Text).Select(x => new { x.Staffname, x.Staffpassword }).FirstOrDefault();
+                StaffServices staffServices= new StaffServices();
+                var dataset = staffServices.validate(usernametb.Text, passwordtb.Text);
                 if (dataset != null)
                 {
                     Main mf = new Main();
@@ -38,7 +36,6 @@ namespace HotelManagementApplicationlication
                     s.messagePrint("Wrong Username or Password!");
                 }
 
-            }
 
         }
     }

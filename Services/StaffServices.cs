@@ -10,6 +10,13 @@ namespace HotelManagementApplication
     public class StaffServices
     {
 
+        public Staff_tbl validate(string user, string pass)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                return db.Staff_tbl.Where(x => x.Staffname == user && x.Staffpassword == pass).FirstOrDefault();
+            }
+        }
         public void AddStaff(Staff_tbl model)
         {
             using (HoteldbEntities1 db = new HoteldbEntities1())
@@ -32,6 +39,15 @@ namespace HotelManagementApplication
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 return db.Staff_tbl.Where(x => x.StaffId == id).FirstOrDefault();
+            }
+        }
+
+        public List<Staff_tbl> GetStaffByName(String name)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                return db.Staff_tbl.Where(x => x.Staffname == name).ToList();
+
             }
         }
 

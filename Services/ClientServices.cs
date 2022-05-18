@@ -11,7 +11,7 @@ namespace HotelManagementApplication
 {
     public class ClientServices
     {
-        
+
         public void AddClient(Client_tbl client)
         {
             using (HoteldbEntities1 db = new HoteldbEntities1())
@@ -21,7 +21,6 @@ namespace HotelManagementApplication
             }
         }
 
-
         public List<String> GetClientsNames()
         {
             using (HoteldbEntities1 db = new HoteldbEntities1())
@@ -30,7 +29,15 @@ namespace HotelManagementApplication
             }
         }
 
-        public List<Client_tbl> GetClients()
+        public List<Client_tbl> GetClientsByName(string name)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                return db.Client_tbl.Where(x => x.ClientName == name).ToList();
+            }
+        }
+
+            public List<Client_tbl> GetClients()
         {
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {

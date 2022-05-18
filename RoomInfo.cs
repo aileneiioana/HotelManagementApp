@@ -106,7 +106,7 @@ namespace HotelManagementApplication
             int.TryParse(RoomSearchtbl.Text.Trim(), out int id);
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
-                var dataset = db.Room_tbl.Where(x => x.RoomId == id).Select(x => new { x.RoomId, x.RoomPhone, x.RoomFree}).ToList();
+                var dataset = roomServices.GetRoomsById(id);
                 RoomGridview.DataSource = dataset;
             }
                 

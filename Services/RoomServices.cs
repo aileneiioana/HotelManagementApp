@@ -35,6 +35,14 @@ namespace HotelManagementApplication
 
             }
         }
+
+        public List<Room_tbl> GetRoomsById(int id)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                return db.Room_tbl.Where(x => x.RoomId == id).ToList();
+            }
+        }
         public void EditRoom (Room_tbl model)
         {
             using (HoteldbEntities1 db = new HoteldbEntities1())
@@ -59,6 +67,20 @@ namespace HotelManagementApplication
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 return  db.Room_tbl.Where(x => x.RoomId == id).FirstOrDefault();
+            }
+        }
+
+        public void updateRoomState(int id, string state)
+        {
+            using (HoteldbEntities1 db = new HoteldbEntities1())
+            {
+                var rm = db.Room_tbl.Where(f => f.RoomId == id).FirstOrDefault();
+                rm.RoomFree = state;
+                if (rm != null)
+                {
+                    db.Entry(rm).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
         }
 
