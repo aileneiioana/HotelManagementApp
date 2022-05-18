@@ -69,7 +69,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotelManagementApp-main\HotelManagementApplication.csproj">
+    <ProjectReference Include="..\HotelManagementApp\HotelManagementApplication.csproj">
       <Project>{A49CCD3A-246A-48DB-89F5-CA51638ABA95}</Project>
       <Name>HotelManagementApplication</Name>
     </ProjectReference>
