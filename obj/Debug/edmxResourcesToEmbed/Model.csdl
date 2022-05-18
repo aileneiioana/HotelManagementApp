@@ -6,7 +6,7 @@
     </Key>
     <Property Name="ClientId" Type="Int32" Nullable="false" />
     <Property Name="ClientName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="ClientPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ClentPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="ClientCountry" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Reservation_tbl">

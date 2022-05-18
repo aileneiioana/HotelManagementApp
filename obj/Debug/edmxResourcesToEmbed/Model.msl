@@ -6,7 +6,7 @@
         <MappingFragment StoreEntitySet="Client_tbl">
           <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-          <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+          <ScalarProperty Name="ClentPhone" ColumnName="ClentPhone" />
           <ScalarProperty Name="ClientCountry" ColumnName="ClientCountry" />
         </MappingFragment>
       </EntityTypeMapping>
