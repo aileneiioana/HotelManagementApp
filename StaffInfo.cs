@@ -1,4 +1,6 @@
 ﻿using HotelManagementApplicationlication;
+using log4net;
+using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,7 @@ namespace HotelManagementApplication
         Staff_tbl model = new Staff_tbl();
         StaffServices staffService = new StaffServices();
 
-        DateTime Today;
+
         public StaffInfo()
         {
             InitializeComponent();
@@ -88,7 +90,7 @@ namespace HotelManagementApplication
             PopulateDataGridView();
             Clear();
             MessageBox.Show("Staff Successfully Deleted");
-                }
+            }
         }
 
         private void refreshpb_Click(object sender, EventArgs e)
