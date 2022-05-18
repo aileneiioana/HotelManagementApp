@@ -19,7 +19,7 @@ namespace HotelManagementApplication
     {
         Reservation_tbl model = new Reservation_tbl();
         ReservationServices resServices = new ReservationServices();
-        RoomServices roomServices = new RoomServices(); 
+        RoomServices roomServices = new RoomServices();
 
         public ReservationInfo()
         {

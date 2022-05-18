@@ -11,9 +11,11 @@ namespace HotelManagementApplication
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Reservation_tbl
     {
+        [Key]
         public int ResId { get; set; }
         public string Client { get; set; }
         public Nullable<int> Room { get; set; }
