@@ -1,0 +1,5 @@
+2022-05-18 19:43:16,482 [1] WARN HotelManagementApplicationlication.Form1 - Wrong credentials.
+2022-05-18 20:07:26,703 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged antonia
+2022-05-18 20:08:27,588 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged ioana
+2022-05-18 20:08:47,780 [1] WARN HotelManagementApplicationlication.Form1 - Wrong Password or Username 
+2022-05-18 20:08:57,941 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged antonia

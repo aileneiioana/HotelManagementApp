@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="HoteldbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Hoteldb.dbo.Client_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Client_tbl">
           <Key>
             <PropertyRef Name="ClientId" />
@@ -28,8 +26,6 @@ warning 6002: The table/view 'Hoteldb.dbo.Reservation_tbl' does not have a prima
           <Property Name="DateIn" Type="varchar" MaxLength="30" />
           <Property Name="DateOut" Type="varchar" MaxLength="30" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Hoteldb.dbo.Room_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Room_tbl">
           <Key>
             <PropertyRef Name="RoomId" />
@@ -51,17 +47,25 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
           <Property Name="Staffpassword" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityContainer Name="HoteldbModelStoreContainer">
-          <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" store:Type="Tables" Schema="dbo">
-            
+          <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reservation_tbl].[ResId] AS [ResId], 
+    [Reservation_tbl].[Client] AS [Client], 
+    [Reservation_tbl].[Room] AS [Room], 
+    [Reservation_tbl].[DateIn] AS [DateIn], 
+    [Reservation_tbl].[DateOut] AS [DateOut]
+    FROM [dbo].[Reservation_tbl] AS [Reservation_tbl]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" store:Type="Tables" Schema="dbo">
-           
-          </EntitySet>
-          <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" store:Type="Tables" Schema="dbo">
-           
-          </EntitySet>
-          <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" store:Type="Tables" Schema="dbo">
-         
+          <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Staff_tbl].[StaffId] AS [StaffId], 
+    [Staff_tbl].[Staffname] AS [Staffname], 
+    [Staff_tbl].[Staffphone] AS [Staffphone], 
+    [Staff_tbl].[Gender] AS [Gender], 
+    [Staff_tbl].[Staffpassword] AS [Staffpassword]
+    FROM [dbo].[Staff_tbl] AS [Staff_tbl]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema>
@@ -78,6 +82,14 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
           <Property Name="ClientPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ClientCountry" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Room_tbl">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="RoomPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RoomFree" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Reservation_tbl">
           <Key>
             <PropertyRef Name="ResId" />
@@ -87,14 +99,6 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
           <Property Name="Room" Type="Int32" />
           <Property Name="DateIn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DateOut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Room_tbl">
-          <Key>
-            <PropertyRef Name="RoomId" />
-          </Key>
-          <Property Name="RoomId" Type="Int32" Nullable="false" />
-          <Property Name="RoomPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="RoomFree" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Staff_tbl">
           <Key>
@@ -108,8 +112,8 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
         </EntityType>
         <EntityContainer Name="HoteldbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Client_tbl" EntityType="Self.Client_tbl" />
-          <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" />
           <EntitySet Name="Room_tbl" EntityType="Self.Room_tbl" />
+          <EntitySet Name="Reservation_tbl" EntityType="Self.Reservation_tbl" />
           <EntitySet Name="Staff_tbl" EntityType="Self.Staff_tbl" />
         </EntityContainer>
       </Schema>
@@ -128,6 +132,15 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Room_tbl">
+            <EntityTypeMapping TypeName="HoteldbModel.Room_tbl">
+              <MappingFragment StoreEntitySet="Room_tbl">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="RoomPhone" ColumnName="RoomPhone" />
+                <ScalarProperty Name="RoomFree" ColumnName="RoomFree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Reservation_tbl">
             <EntityTypeMapping TypeName="HoteldbModel.Reservation_tbl">
               <MappingFragment StoreEntitySet="Reservation_tbl">
@@ -136,15 +149,6 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
                 <ScalarProperty Name="Room" ColumnName="Room" />
                 <ScalarProperty Name="DateIn" ColumnName="DateIn" />
                 <ScalarProperty Name="DateOut" ColumnName="DateOut" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_tbl">
-            <EntityTypeMapping TypeName="HoteldbModel.Room_tbl">
-              <MappingFragment StoreEntitySet="Room_tbl">
-                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
-                <ScalarProperty Name="RoomPhone" ColumnName="RoomPhone" />
-                <ScalarProperty Name="RoomFree" ColumnName="RoomFree" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -173,7 +177,7 @@ warning 6002: The table/view 'Hoteldb.dbo.Staff_tbl' does not have a primary key
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
