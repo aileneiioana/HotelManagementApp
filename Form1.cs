@@ -25,14 +25,18 @@ namespace HotelManagementApplicationlication
             using (HoteldbEntities1 db = new HoteldbEntities1())
             {
                 var dataset = db.Staff_tbl.Where(x => x.Staffname == usernametb.Text && x.Staffpassword == passwordtb.Text).Select(x => new { x.Staffname, x.Staffpassword }).FirstOrDefault();
-                if(dataset != null)
+                if (dataset != null)
                 {
-            Main mf = new Main();
-            mf.Show();
-            this.Hide();
+                    Main mf = new Main();
+                    mf.Show();
+                    this.Hide();
 
                 }
-                else MessageBox.Show("Wrong Username or Password!");
+                else {
+                    //Singletone
+                    Singleton s = Singleton.Instance;
+                    s.messagePrint("Wrong Username or Password!");
+                }
 
             }
 
