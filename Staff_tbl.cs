@@ -11,11 +11,9 @@ namespace HotelManagementApplication
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Staff_tbl
     {
-       [Key]
         public int StaffId { get; set; }
         public string Staffname { get; set; }
         public string Staffphone { get; set; }
