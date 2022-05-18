@@ -1,6 +1,6 @@
 # HotelManagementApp
 
-*Project Description
+Project Description
 
 In this Project Project we created a c# complete application of Hotel Reservation. The Application starts with a nice looking splash form which leads to a login form. The login form will be connected to a database, if the user id and password match the database entries, the user will login to the main form.
 From the main form, the user can go to the Staff form. He can add, edit, delete and view Staff.
