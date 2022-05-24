@@ -15,6 +15,7 @@ namespace HotelManagementApplication
     {
         Room_tbl model = new Room_tbl();
         RoomServices roomServices = new RoomServices();
+        Singleton s = Singleton.Instance;
         public RoomInfo()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace HotelManagementApplication
             Clear();
             PopulateDataGridView();
             MessageBox.Show("Submitted Successfully");
+            s.printLoggInfo("Room Added " + model.RoomId);
         }
 
         void PopulateDataGridView()
@@ -66,6 +68,7 @@ namespace HotelManagementApplication
             Clear();
             MessageBox.Show("Room Successfully Updated");
             PopulateDataGridView();
+            s.printLoggInfo("Room Eddited " + model.RoomId);
         }
 
         private void RoomGridview_DoubleClick(object sender, EventArgs e)
@@ -81,12 +84,15 @@ namespace HotelManagementApplication
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this Record?", "Room Info", MessageBoxButtons.YesNo) == DialogResult.Yes) { 
+            if (MessageBox.Show("Are you sure you want to delete this Record?", "Room Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 roomServices.DeleteRoom(model);
                 PopulateDataGridView();
                 Clear();
                 MessageBox.Show("Room Successfully Deleted");
-                }
+                s.printLoggInfo("Room deleted  " + model.RoomId);
+            }
+            else s.printLoggError("Room can't be deleted " + model.RoomId);
         }
 
         private void back_btn_Click(object sender, EventArgs e)

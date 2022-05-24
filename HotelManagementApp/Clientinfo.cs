@@ -15,12 +15,14 @@ namespace HotelManagementApplication
     {
         Client_tbl model= new Client_tbl();
         ClientServices clientServices = new ClientServices();
+        Singleton s = Singleton.Instance;
 
         public Clientinfo()
         {
             InitializeComponent();
             PopulateDataGridView();
             Datelbl.Text = DateTime.Today.Day.ToString() + " - " + DateTime.Today.Month.ToString() + " - " + DateTime.Today.Year.ToString();
+            Singleton s = Singleton.Instance;
         }
 
         void Clear()
@@ -55,6 +57,7 @@ namespace HotelManagementApplication
             Clear();
             PopulateDataGridView();
             MessageBox.Show("Submitted Successfully");
+            s.printLoggInfo("Client Added " + model.ClientName);
 
         }
 
@@ -80,10 +83,14 @@ namespace HotelManagementApplication
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this Record?", "Client Info", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            clientServices.DeleteClient(model);
-            PopulateDataGridView();
-            Clear();
-            MessageBox.Show("Client Successfully Deleted");
+            {
+                clientServices.DeleteClient(model);
+                PopulateDataGridView();
+                Clear();
+                MessageBox.Show("Client Successfully Deleted");
+                s.printLoggInfo("Client deleted " + model.ClientName);
+            }
+            else s.printLoggError("Client can't be deleted " + model.ClientName);
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -97,7 +104,8 @@ namespace HotelManagementApplication
             Clear();
             MessageBox.Show("Client Successfully Updated");
             PopulateDataGridView();
-            
+            s.printLoggInfo("Client Eddited " + model.ClientName);
+
         }
 
         private void back_btn_Click(object sender, EventArgs e)
