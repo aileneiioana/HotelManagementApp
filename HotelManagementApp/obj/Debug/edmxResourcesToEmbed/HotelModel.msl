@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HoteldbModelStoreContainer" CdmEntityContainer="HoteldbEntities">
+    <EntitySetMapping Name="Client_tbl">
+      <EntityTypeMapping TypeName="HoteldbModel.Client_tbl">
+        <MappingFragment StoreEntitySet="Client_tbl">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+          <ScalarProperty Name="ClientCountry" ColumnName="ClientCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation_tbl">
+      <EntityTypeMapping TypeName="HoteldbModel.Reservation_tbl">
+        <MappingFragment StoreEntitySet="Reservation_tbl">
+          <ScalarProperty Name="ResId" ColumnName="ResId" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_tbl">
+      <EntityTypeMapping TypeName="HoteldbModel.Room_tbl">
+        <MappingFragment StoreEntitySet="Room_tbl">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="RoomPhone" ColumnName="RoomPhone" />
+          <ScalarProperty Name="RoomFree" ColumnName="RoomFree" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff_tbl">
+      <EntityTypeMapping TypeName="HoteldbModel.Staff_tbl">
+        <MappingFragment StoreEntitySet="Staff_tbl">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="Staffname" ColumnName="Staffname" />
+          <ScalarProperty Name="Staffphone" ColumnName="Staffphone" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Staffpassword" ColumnName="Staffpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,18 @@
+2022-05-18 19:43:16,482 [1] WARN HotelManagementApplicationlication.Form1 - Wrong credentials.
+2022-05-18 20:07:26,703 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged antonia
+2022-05-18 20:08:27,588 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged ioana
+2022-05-18 20:08:47,780 [1] WARN HotelManagementApplicationlication.Form1 - Wrong Password or Username 
+2022-05-18 20:08:57,941 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged antonia
+2022-05-24 17:18:47,142 [1] ERROR HotelManagementApplicationlication.Form1 - Wrong Password or Username 
+2022-05-24 17:18:50,194 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged ioana
+2022-05-24 17:21:14,721 [1] INFO HotelManagementApplicationlication.Form1 - Staff logged ioana
+2022-05-24 17:40:32,775 [1] ERROR HotelManagementApplication.Singleton - Wrong Password or Username 
+2022-05-24 17:40:48,449 [1] INFO HotelManagementApplication.Singleton - Staff logged ioana
+2022-05-24 17:41:27,033 [1] INFO HotelManagementApplication.Singleton - Staff Addedkid
+2022-05-24 17:44:13,660 [1] INFO HotelManagementApplication.Singleton - Staff logged ioana
+2022-05-24 17:44:58,609 [1] INFO HotelManagementApplication.Singleton - Staff Deleted 
+2022-05-24 17:44:58,612 [1] ERROR HotelManagementApplication.Singleton - Staff can't be deleted 
+2022-05-24 17:47:33,981 [1] INFO HotelManagementApplication.Singleton - Staff logged ioana
+2022-05-24 17:47:52,873 [1] INFO HotelManagementApplication.Singleton - Staff Added kid
+2022-05-24 17:48:05,775 [1] INFO HotelManagementApplication.Singleton - Staff Eddited kid
+2022-05-24 17:48:09,889 [1] INFO HotelManagementApplication.Singleton - Staff Deleted kid
